@@ -153,6 +153,14 @@
         </div>
       </form>
    </div>
+   <script>
+      let salary = document.getElementById("salary");
+      let output = document.querySelector('.salary-output');
+      output.textContent = salary.value;
+      salary.addEventListener('input', function() {
+         output.textContent = salary.value;
+      });
+   </script>
 </body>
 
 </html>

@@ -1,5 +1,9 @@
 class EmployeePayrollData {
 
+    //constructor
+    constructor () {
+    }
+
     //getters and setters
     get id() {
         return this._id;
@@ -60,7 +64,7 @@ class EmployeePayrollData {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         const empDate = !this.startDate ? "undefined" :
             this.startDate.toLocaleDateString("en-US", options);
-        return "name = " + this.name + ", gender = " + this.gender + ", department = " + this.department
-            + ", salary = " + this.salary + ", startDate = " + empDate + ", notes = " + this.notes;
+        return `id = ${this.id}, name = ${this.name}, gender = ${this.gender}, department = ${this.department}
+                    , salary = ${this.salary}, startDate = ${empDate}, notes = ${this.notes}`;
     }
 }

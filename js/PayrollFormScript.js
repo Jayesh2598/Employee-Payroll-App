@@ -82,6 +82,7 @@ const createEmployeePayroll = () => {
       setTextValue('.text-error', e);
       throw e;
    }
+   employeePayrollData.id = createNewEmployeeId();
    employeePayrollData.profilePic = getSelectedValues('[name=profile]').pop();
    employeePayrollData.gender = getSelectedValues('[name=gender]').pop();
    employeePayrollData.department = getSelectedValues('[type=checkbox]');
@@ -90,6 +91,13 @@ const createEmployeePayroll = () => {
    employeePayrollData.startDate = new Date(getInputValueById('#year'), getInputValueById('#month')-1, getInputValueById('#day'));
    alert(employeePayrollData.toString());
    return employeePayrollData;
+}
+
+const createNewEmployeeId = () => {
+   let empId = localStorage.getItem("EmployeeId");
+   empId = !empId ? 1 : (parseInt(empId)+1).toString();
+   localStorage.setItem("EmployeeId", empId);
+   return empId;
 }
 
 const getSelectedValues = (propertyValue) => {

@@ -31,10 +31,10 @@ const createInnerHtml = () => {
             <td>${employeePayrollData._gender}</td>
             <td>${getDeptHtml(employeePayrollData._department)}</td>
             <td>${employeePayrollData._salary}</td>
-            <td>${employeePayrollData._startDate}</td>
+            <td>${stringifyDate(employeePayrollData._startDate)}</td>
             <td>
-               <img name="${employeePayrollData._id}" src="../assets/icons/delete-black-18dp.svg" alt="delete" onclick="remove(this)">
-               <img name="${employeePayrollData._id}" src="../assets/icons/create-black-18dp.svg" alt="edit" onclick="update(this)">
+               <img id="${employeePayrollData._id}" src="../assets/icons/delete-black-18dp.svg" alt="delete" onclick="remove(${employeePayrollData._id})">
+               <img id="${employeePayrollData._id}" src="../assets/icons/create-black-18dp.svg" alt="edit" onclick="update(${employeePayrollData._id})">
             </td>
          </tr>
       `;
@@ -47,4 +47,18 @@ const getDeptHtml = (deptList) => {
    for (const dept of deptList)
       deptHtml = `${deptHtml} <div class="dept-label">${dept}</div>`;
    return deptHtml;
+}
+
+const remove = (empID) => {
+   let empPayrollData = empPayrollList.find(empData => empData._id == empID);
+   if(!empPayrollData) return;
+   if(confirm(`Do you want to delete the record for ${empPayrollData._name}?`)) {
+      const index = empPayrollList
+                     .map(empData => empData._id)
+                     .indexOf(empPayrollData._id);
+      empPayrollList.splice(index, 1);
+      localStorage.setItem("EmployeePayrollList", JSON.stringify(empPayrollList));
+      document.querySelector(".emp-count").textContent = empPayrollList.length;
+      createInnerHtml();
+   }
 }

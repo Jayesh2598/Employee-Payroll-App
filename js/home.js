@@ -1,8 +1,17 @@
+let empPayrollList;
 window.addEventListener('DOMContentLoaded', (event) => {
+   empPayrollList = getEmployeePayrollDataFromLocalStorage();
+   document.querySelector(".emp-count").textContent = empPayrollList.length;
    createInnerHtml();
 });
 
+const getEmployeePayrollDataFromLocalStorage = () => {
+   return localStorage.getItem('EmployeePayrollList') ?
+            JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
+}
+
 const createInnerHtml = () => {
+   if(empPayrollList.length == 0) return;
    const headerHtml =
       `<tr>
          <th></th>
@@ -14,7 +23,6 @@ const createInnerHtml = () => {
          <th>Actions</th>
       </tr>`;
    let innerHtml = `${headerHtml}`;
-   let empPayrollList = createEmployeePayrollJSON();
    for (const employeePayrollData of empPayrollList) {
       innerHtml = `${innerHtml}
          <tr>
@@ -25,46 +33,14 @@ const createInnerHtml = () => {
             <td>${employeePayrollData._salary}</td>
             <td>${employeePayrollData._startDate}</td>
             <td>
-               <img id="1" src="../assets/icons/delete-black-18dp.svg" alt="delete" onclick="remove(this)">
-               <img id="1" src="../assets/icons/create-black-18dp.svg" alt="edit" onclick="update(this)">
+               <img name="${employeePayrollData._id}" src="../assets/icons/delete-black-18dp.svg" alt="delete" onclick="remove(this)">
+               <img name="${employeePayrollData._id}" src="../assets/icons/create-black-18dp.svg" alt="edit" onclick="update(this)">
             </td>
          </tr>
       `;
    }
    document.querySelector('#table-display').innerHTML = innerHtml;
 }
-
-const createEmployeePayrollJSON = () => {
-   let empPayrollListLocal = [
-      {
-         _name: "Jayesh Chaudhari",
-         _gender: "Male",
-         _department: [
-            'HR',
-            'Finance'
-         ],
-         _salary: '400000',
-         _startDate: '25 Nov 2019',
-         _note: '',
-         _id: new Date().getTime(),
-         _profilePic: '../assets/profile-images/Ellipse -5.png'
-      },
-      {
-         _name: "Ajeesh Ajayan",
-         _gender: "Male",
-         _department: [
-            'Engineering'
-         ],
-         _salary: '300000',
-         _startDate: '22 Apr 2019',
-         _note: '',
-         _id: new Date().getTime() + 1,
-         _profilePic: '../assets/profile-images/Ellipse -8.png'
-      }
-   ];
-   return empPayrollListLocal;
-}
-
 
 const getDeptHtml = (deptList) => {
    let deptHtml = '';

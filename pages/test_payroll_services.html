@@ -19,7 +19,7 @@
             margin-top: 50px;
         }
     </style>
-    <script src="../js/http_services.js"></script>
+    <script src="../js/http_payroll_services.js"></script>
 </head>
 
 <body>
@@ -52,8 +52,7 @@
             "_salary": "400000",
             "_startDate": "29 Oct 2019",
             "_note": "",
-            "_profilePic": "../assets/profile-images/Ellipse -1.png",
-            "id": 3
+            "_profilePic": "../assets/profile-images/Ellipse -1.png"
         };
         makeServiceCall("POST", postURL, true, employee)
             .then(responseText => postElem.textContent = "User added : " + responseText)

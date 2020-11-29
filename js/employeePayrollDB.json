@@ -36,6 +36,33 @@
       "_note": "",
       "_profilePic": "../assets/profile-images/Ellipse -1.png",
       "id": 3
+    },
+    {
+      "_name": "Mark",
+      "_profilePic": "../assets/profile-images/Ellipse -3.png",
+      "_gender": "Male",
+      "_department": [
+        "HR",
+        "Sales",
+        "Finance"
+      ],
+      "_salary": "444500",
+      "_notes": "Mark notes",
+      "_startDate": "18 Nov 2020",
+      "id": 4
+    },
+    {
+      "_name": "Bill Gates",
+      "_profilePic": "../assets/profile-images/Ellipse -3.png",
+      "_gender": "Male",
+      "_department": [
+        "Engineer",
+        "Others"
+      ],
+      "_salary": "493000",
+      "_notes": "Bill's notes",
+      "_startDate": "21 Nov 2020",
+      "id": 5
     }
   ]
 }

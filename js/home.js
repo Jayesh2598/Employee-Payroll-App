@@ -34,8 +34,8 @@ const createInnerHtml = () => {
             <td>${employeePayrollData._salary}</td>
             <td>${stringifyDate(employeePayrollData._startDate)}</td>
             <td>
-               <img id="${employeePayrollData._id}" src="../assets/icons/delete-black-18dp.svg" alt="delete" onclick="remove(${employeePayrollData._id})">
-               <img id="${employeePayrollData._id}" src="../assets/icons/create-black-18dp.svg" alt="edit" onclick="update(${employeePayrollData._id})">
+               <img id="${employeePayrollData.id}" src="../assets/icons/delete-black-18dp.svg" alt="delete" onclick="remove(${employeePayrollData.id})">
+               <img id="${employeePayrollData.id}" src="../assets/icons/create-black-18dp.svg" alt="edit" onclick="update(${employeePayrollData.id})">
             </td>
          </tr>
       `;
@@ -51,12 +51,12 @@ const getDeptHtml = (deptList) => {
 }
 
 const remove = (empID) => {
-   let empPayrollData = empPayrollList.find(empData => empData._id == empID);
+   let empPayrollData = empPayrollList.find(empData => empData.id == empID);
    if(!empPayrollData) return;
    if(confirm(`Do you want to delete the record for ${empPayrollData._name}?`)) {
       const index = empPayrollList
-                     .map(empData => empData._id)
-                     .indexOf(empPayrollData._id);
+                     .map(empData => empData.id)
+                     .indexOf(empPayrollData.id);
       empPayrollList.splice(index, 1);
       localStorage.setItem("EmployeePayrollList", JSON.stringify(empPayrollList));
       document.querySelector(".emp-count").textContent = empPayrollList.length;
@@ -65,7 +65,7 @@ const remove = (empID) => {
 }
 
 const update = (empID) => {
-   let empPayrollData = empPayrollList.find(empData => empData._id == empID);
+   let empPayrollData = empPayrollList.find(empData => empData.id == empID);
    if(!empPayrollData) return;
    localStorage.setItem("editEmp", JSON.stringify(empPayrollData));
    window.location.replace(site_properties.add_emp_payroll_page);

@@ -90,6 +90,10 @@ const createAndUpdateStorage = () => {
 const createOrUpdateEmployeePayroll = () => {
    let postURL = site_properties.server_url;
    let methodCall = "POST";
+   if(isUpdate) {
+      postURL = postURL + employeePayrollObj.id.toString();
+      methodCall = "PUT";
+   }
    makeServiceCall(methodCall, postURL, true, employeePayrollObj)
          .then(responseText => {
             resetForm();

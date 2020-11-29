@@ -5,25 +5,28 @@
       "_name": "Bruce Wayne",
       "_gender": "Male",
       "_department": [
-        "Engineering",
-        "Finance"
+        "Finance",
+        "Others"
       ],
-      "_salary": "500000",
-      "_startDate": "29 Oct 2019",
+      "_salary": "496500",
+      "_startDate": "20 Nov 2020",
       "_note": "All In One",
-      "_profilePic": "../assets/profile-images/Ellipse -3.png"
+      "_profilePic": "../assets/profile-images/Ellipse -8.png",
+      "_notes": "Bruce's notes"
     },
     {
       "id": 2,
       "_name": "Anthony Stark",
       "_gender": "Male",
       "_department": [
-        "Engineering"
+        "Engineer",
+        "Others"
       ],
       "_salary": "500000",
-      "_startDate": "29 Oct 2019",
+      "_startDate": "17 Nov 2020",
       "_note": "Terrific Engineer",
-      "_profilePic": "../assets/profile-images/Ellipse -1.png"
+      "_profilePic": "../assets/profile-images/Ellipse -3.png",
+      "_notes": "Stark's notes"
     },
     {
       "_name": "Alice Walton",
@@ -32,10 +35,11 @@
         "Sales"
       ],
       "_salary": "400000",
-      "_startDate": "29 Oct 2019",
+      "_startDate": "23 Nov 2020",
       "_note": "",
-      "_profilePic": "../assets/profile-images/Ellipse -1.png",
-      "id": 3
+      "_profilePic": "../assets/profile-images/Ellipse -7.png",
+      "id": 3,
+      "_notes": "Alice's notes"
     },
     {
       "_name": "Mark",
